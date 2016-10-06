@@ -11,8 +11,42 @@ import UIKit
 class MasterViewController: UITableViewController {
 
     var detailViewController: DetailViewController? = nil
-    var objects = [AnyObject]()
+    let escottEmail = "escott@ugm.org"
+    var displaySegment = 0  //0==website, email==1, phone==2
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
+    
+    var objects: [Service] = [
+        Service(name: "Hope Place", urlString: "http://hopeplace.ugm.volunteerhub.com/events/index", email: "escott@ugm.org"),
+        Service(name: "Emergency Family Shelter", urlString: "http://efs.ugm.volunteerhub.com/events/index", email: "escott@ugm.org"),
+        Service(name: "UGM Group Volunteering", urlString: "http://groups.ugm.volunteerhub.com/events/index", email: "meng@ugm.org"),
+        Service(name: "Elementary Program Volunteer", urlString: "http://elementary.ugm.volunteerhub.com/events/index", email: "escott@ugm.org"),
+        Service(name: "Congregations for the Homeless (must email)", urlString: "http://www.cfhomeless.org/volunteer-opportunities/", email: "volunteer@cfhomeless.org"),
+        Service(name: "Distribution", urlString: "http://distribution.ugm.volunteerhub.com/events/index", email: "escott@ugm.org"),
+    Service(name: "Capitol Hill Women's Shelter", urlString: "http://chws.ugm.volunteerhub.com/events/index", email: "escott@ugm.org"),
+    Service(name: "Books To Prisoners", urlString: "http://www.bookstoprisoners.net/volunteer/", email: "bookstoprisoners@live.com"),
+    Service(name: "", urlString: "", email: ""),
+    
+    
+    
+    ]
 
+    @IBAction func indexChanged(sender: AnyObject) {
+        switch segmentedControl.selectedSegmentIndex
+        {
+        case 0:
+            displaySegment = 0
+            tableView.reloadData()
+        case 1:
+            displaySegment = 1
+            tableView.reloadData()
+        case 2:
+            displaySegment = 2
+            tableView.reloadData()
+        default:
+            break;
+            
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +72,7 @@ class MasterViewController: UITableViewController {
     }
 
     func insertNewObject(sender: AnyObject) {
-        objects.insert(NSDate(), atIndex: 0)
+       
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         self.tableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
@@ -47,8 +81,9 @@ class MasterViewController: UITableViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
+            
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
+                let object = objects[indexPath.row]
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
@@ -70,8 +105,8 @@ class MasterViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
+        let object = objects[indexPath.row] 
+        cell.textLabel!.text = object.name
         return cell
     }
 

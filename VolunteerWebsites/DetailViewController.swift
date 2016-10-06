@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import WebKit
+class DetailViewController: UIViewController, WKUIDelegate, UIWebViewDelegate {
 
-class DetailViewController: UIViewController {
+    @IBOutlet weak var uiWebView: UIWebView!
+    //var webView: WKWebView!
 
-    @IBOutlet weak var detailDescriptionLabel: UILabel!
-
-
-    var detailItem: AnyObject? {
+    var detailItem: Service? {
         didSet {
             // Update the view.
             self.configureView()
@@ -22,17 +22,37 @@ class DetailViewController: UIViewController {
 
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail = self.detailItem {
-            if let label = self.detailDescriptionLabel {
-                label.text = detail.description
-            }
-        }
+        
+        /*let webConfiguration = WKWebViewConfiguration()
+        webView = WKWebView(frame: CGRectMake(0, 30, self.view.frame.width, self.view.frame.size.height - 60), configuration: webConfiguration)
+        webView.UIDelegate = self*/
+       
+        
+       // view.addSubview(webView)
+        
+        
+        
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.configureView()
+        uiWebView.delegate = self
+        
+        if self.detailItem != nil {
+            print("not nil")
+            self.navigationItem.title = self.detailItem?.name
+            let myURL = detailItem!.url
+            
+            let myRequest = NSURLRequest(URL: myURL)
+            uiWebView.loadRequest(myRequest)
+            
+            
+        }
+        uiWebView.scalesPageToFit = true
+      
+        
+       // self.configureView()
     }
 
     override func didReceiveMemoryWarning() {
