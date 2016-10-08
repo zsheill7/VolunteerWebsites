@@ -16,6 +16,7 @@
 		C8087F7C1DA60A6F00CCE204 /* VolunteerWebsitesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8087F7B1DA60A6F00CCE204 /* VolunteerWebsitesTests.swift */; };
 		C8087F871DA60A6F00CCE204 /* VolunteerWebsitesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8087F861DA60A6F00CCE204 /* VolunteerWebsitesUITests.swift */; };
 		C8087F951DA60AD200CCE204 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8087F941DA60AD200CCE204 /* Service.swift */; };
+		C835CCFA1DA98C5700BDBF7D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C835CCF91DA98C5700BDBF7D /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		C8087F861DA60A6F00CCE204 /* VolunteerWebsitesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolunteerWebsitesUITests.swift; sourceTree = "<group>"; };
 		C8087F881DA60A6F00CCE204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8087F941DA60AD200CCE204 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		C835CCF91DA98C5700BDBF7D /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				C8087F6F1DA60A6F00CCE204 /* LaunchScreen.storyboard */,
 				C8087F721DA60A6F00CCE204 /* Info.plist */,
 				C8087F941DA60AD200CCE204 /* Service.swift */,
+				C835CCF91DA98C5700BDBF7D /* MapViewController.swift */,
 			);
 			path = VolunteerWebsites;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				C8087F691DA60A6F00CCE204 /* DetailViewController.swift in Sources */,
 				C8087F951DA60AD200CCE204 /* Service.swift in Sources */,
 				C8087F671DA60A6F00CCE204 /* MasterViewController.swift in Sources */,
+				C835CCFA1DA98C5700BDBF7D /* MapViewController.swift in Sources */,
 				C8087F651DA60A6F00CCE204 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,6 +496,7 @@
 				C8087F8D1DA60A6F00CCE204 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C8087F8E1DA60A6F00CCE204 /* Build configuration list for PBXNativeTarget "VolunteerWebsitesTests" */ = {
 			isa = XCConfigurationList;
@@ -500,6 +505,7 @@
 				C8087F901DA60A6F00CCE204 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C8087F911DA60A6F00CCE204 /* Build configuration list for PBXNativeTarget "VolunteerWebsitesUITests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +514,7 @@
 				C8087F931DA60A6F00CCE204 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
