@@ -30,11 +30,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let tabBarViewController = self.window!.rootViewController as! UITabBarController
         var splitViewControllerOne:UISplitViewController? = nil
         var splitViewControllerTwo:UISplitViewController? = nil
+        var splitViewControllerThree:UISplitViewController? = nil
+        var splitViewControllerFour:UISplitViewController? = nil
+        
         for viewController in tabBarViewController.viewControllers! {
             if viewController.title == "Master1" {
                 splitViewControllerOne = viewController as? UISplitViewController
             } else if viewController.title == "Master2" {
                 splitViewControllerTwo = viewController as? UISplitViewController
+            } else if viewController.title == "Master3" {
+                splitViewControllerThree = viewController as? UISplitViewController
+            } else if viewController.title == "Master4" {
+                splitViewControllerFour = viewController as? UISplitViewController
             }
         }
         let navigationController = splitViewControllerOne!.viewControllers[splitViewControllerOne!.viewControllers.count-1] as! UINavigationController
@@ -47,6 +54,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         splitViewControllerOne!.delegate = self
         splitViewControllerTwo!.delegate = self
+        splitViewControllerThree!.delegate = self
+        splitViewControllerFour!.delegate = self
         return true
     }
 
