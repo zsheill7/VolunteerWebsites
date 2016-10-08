@@ -8,18 +8,45 @@
 
 import UIKit
 
+
+func UIColorFromHex(rgbValue:UInt32, alpha:Double=1.0)->UIColor {
+    let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
+    let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
+    let blue = CGFloat(rgbValue & 0xFF)/256.0
+    
+    return UIColor(red:red, green:green, blue:blue, alpha:CGFloat(alpha))
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
 
+   
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-        let splitViewController = self.window!.rootViewController as! UISplitViewController
-        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
-        splitViewController.delegate = self
+        //let splitViewController = self.window!.rootViewController as! UISplitViewController
+        let tabBarViewController = self.window!.rootViewController as! UITabBarController
+        var splitViewControllerOne:UISplitViewController? = nil
+        var splitViewControllerTwo:UISplitViewController? = nil
+        for viewController in tabBarViewController.viewControllers! {
+            if viewController.title == "Master1" {
+                splitViewControllerOne = viewController as? UISplitViewController
+            } else if viewController.title == "Master2" {
+                splitViewControllerTwo = viewController as? UISplitViewController
+            }
+        }
+        let navigationController = splitViewControllerOne!.viewControllers[splitViewControllerOne!.viewControllers.count-1] as! UINavigationController
+        //navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
+        
+        var navigationBarAppearance = UINavigationBar.appearance()
+        
+        navigationBarAppearance.barTintColor = UIColorFromHex(0x66CCCC, alpha: 1.0)
+        
+        
+        splitViewControllerOne!.delegate = self
+        splitViewControllerTwo!.delegate = self
         return true
     }
 

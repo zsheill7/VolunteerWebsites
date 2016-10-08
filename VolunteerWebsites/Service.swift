@@ -23,8 +23,14 @@ class Service {
         } else {
             self.url = NSURL(string: "http://desc.org/")!
         }
-        if email != nil {
-            self.email = email!
-        }
+        
+        self.email = email
+        
+    }
+    
+    
+    
+    public func getURL() -> NSURL{
+        return url
     }
 }
