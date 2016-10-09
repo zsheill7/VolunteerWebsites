@@ -12,9 +12,10 @@ class Service {
     let name: String
     let url: NSURL
     let email: String
+    let phone: String
+    let address: String
     
-    
-    init(name: String, urlString: String, email: String) {
+    init(name: String, urlString: String, email: String, phone: String, address: String) {
         self.name = name
         
         let url = NSURL(string: urlString)
@@ -25,12 +26,11 @@ class Service {
         }
         
         self.email = email
-        
+        self.phone = phone
+        self.address = address
     }
     
     
     
-    public func getURL() -> NSURL{
-        return url
-    }
+    
 }

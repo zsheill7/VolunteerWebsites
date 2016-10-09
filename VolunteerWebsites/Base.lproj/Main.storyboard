@@ -91,10 +91,10 @@
             </objects>
             <point key="canvasLocation" x="-1610" y="57"/>
         </scene>
-        <!--View Controller-->
+        <!--Map View Controller-->
         <scene sceneID="CAa-ib-gNt">
             <objects>
-                <viewController id="hWR-Dd-A7z" sceneMemberID="viewController">
+                <viewController id="hWR-Dd-A7z" customClass="MapViewController" customModule="VolunteerWebsites" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7C0-4w-fOi"/>
                         <viewControllerLayoutGuide type="bottom" id="bWf-v7-fBh"/>
@@ -103,7 +103,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="haQ-S8-S4Z">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="haQ-S8-S4Z">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                             </mapView>
                         </subviews>
@@ -116,6 +116,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="8wq-0L-BJR"/>
+                    <connections>
+                        <outlet property="mapView" destination="haQ-S8-S4Z" id="BWc-Gd-hxE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UDF-Jb-EW7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

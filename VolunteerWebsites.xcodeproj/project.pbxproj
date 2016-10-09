@@ -17,6 +17,7 @@
 		C8087F871DA60A6F00CCE204 /* VolunteerWebsitesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8087F861DA60A6F00CCE204 /* VolunteerWebsitesUITests.swift */; };
 		C8087F951DA60AD200CCE204 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8087F941DA60AD200CCE204 /* Service.swift */; };
 		C835CCFA1DA98C5700BDBF7D /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C835CCF91DA98C5700BDBF7D /* MapViewController.swift */; };
+		C835CCFC1DA9AC2E00BDBF7D /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = C835CCFB1DA9AC2E00BDBF7D /* Artwork.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		C8087F881DA60A6F00CCE204 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8087F941DA60AD200CCE204 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		C835CCF91DA98C5700BDBF7D /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		C835CCFB1DA9AC2E00BDBF7D /* Artwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				C8087F721DA60A6F00CCE204 /* Info.plist */,
 				C8087F941DA60AD200CCE204 /* Service.swift */,
 				C835CCF91DA98C5700BDBF7D /* MapViewController.swift */,
+				C835CCFB1DA9AC2E00BDBF7D /* Artwork.swift */,
 			);
 			path = VolunteerWebsites;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 				C8087F951DA60AD200CCE204 /* Service.swift in Sources */,
 				C8087F671DA60A6F00CCE204 /* MasterViewController.swift in Sources */,
 				C835CCFA1DA98C5700BDBF7D /* MapViewController.swift in Sources */,
+				C835CCFC1DA9AC2E00BDBF7D /* Artwork.swift in Sources */,
 				C8087F651DA60A6F00CCE204 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
