@@ -10,23 +10,41 @@ import CoreLocation
 import UIKit
 import MapKit
 
-let geocoder = CLGeocoder()
+var geocoder = CLGeocoder()
+var addresses: [String] = [String]()
 
-func geocodeAddress(address:String) -> CLLocationCoordinate2D{
-    geocoder.geocodeAddressString(address) { (placemarks, error) in
-        if ((error) != nil) {
-            print("Error", error)
-        }
-        if let placemark = placemarks?.first {
-            let coordinates: CLLocationCoordinate2D = placemark.location!.coordinate
-            return coordinates
-        }
-    }
-}
+class MapViewController: UIViewController, CLLocationManagerDelegate {
 
-class MapViewController: UIViewController {
-
+    let locationManager: CLLocationManager = CLLocationManager()
+    let authorizationStatus = CLLocationManager.authorizationStatus()
     @IBOutlet weak var mapView: MKMapView!
+    var count = 0
+    
+    func geocodeAddress(address:String, service: Service){
+        //var coordinates: CLLocationCoordinate2D = CLLocationCoordinate2D()
+        geocoder.geocodeAddressString(address) { (placemarks, error) in
+            if ((error) != nil) {
+                print("Error", error)
+            }
+            if let placemark = placemarks?.first{
+                print("inside placemark block")
+                print(placemark.location!.coordinate)
+                let coordinates = placemark.location!.coordinate
+                print(coordinates)
+                let artwork = Artwork(title: service.name, locationName: "", discipline: "Volunteering", coordinate: coordinates)
+                //print(geocodeAddress(service.address))
+                self.mapView.addAnnotation(artwork)
+                print("Here")
+            }
+            
+        }
+        geocoder = CLGeocoder()
+        print("Here")
+        
+        
+       
+    }
+    
     
     let initialLocation = CLLocation(latitude: 47.5707, longitude: -122.2422)
     
@@ -36,11 +54,30 @@ class MapViewController: UIViewController {
         mapView.setRegion(coordinateRegion, animated: true)
     }
     override func viewDidLoad() {
-        
-        for service in homelessServices {
-            let artwork = Artwork(title: service["title"], locationName: "", coordinate: )
-        }
         centerMapOnLocation(initialLocation)
+        
+        locationManager.delegate = self
+        if(authorizationStatus == .Denied) {
+            print("DENIED")
+            locationManager.requestWhenInUseAuthorization()
+        }
+        
+        for service:Service in homelessServices {
+            geocodeAddress(service.address, service: service)
+            print("anotha one")
+            addresses.append(service.address)
+            //let artwork = Artwork(title: service.name, locationName: "Subscript", discipline: "Volunteering", coordinate: geocodeAddress(service.address))
+            //print(geocodeAddress(service.address))
+            //mapView.addAnnotation(artwork)
+        }
+        
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     
