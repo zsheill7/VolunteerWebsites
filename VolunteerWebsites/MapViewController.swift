@@ -53,9 +53,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
         mapView.setRegion(coordinateRegion, animated: true)
     }
+    
+    var locationTuples: [(textField: UITextField!, mapItem: MKMapItem?)]!
+    
     override func viewDidLoad() {
         centerMapOnLocation(initialLocation)
         
+       // locationTuples = [(sourceField, nil), (desinationField1, nil), (destinat)]
         locationManager.delegate = self
         if(authorizationStatus == .Denied) {
             print("DENIED")
@@ -78,6 +82,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+    }
+    
+    func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+        mapView.showsUserLocation = (status == .AuthorizedAlways)
+    }
+    
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        //let locValue:CLLocationCoordinate2D = locations.last!
+       // print("locations = \(locValue.latitude) \(locValue.longitude)")
     }
     
     
