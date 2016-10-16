@@ -146,6 +146,19 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UDF-Jb-EW7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" id="f0e-A2-aXP">
+                    <rect key="frame" x="0.0" y="0.0" width="110" height="60"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C3N-aI-vJ8">
+                            <rect key="frame" x="0.0" y="0.0" width="110" height="60"/>
+                            <state key="normal" title="Directions"/>
+                            <connections>
+                                <action selector="directionsTapped:" destination="hWR-Dd-A7z" eventType="touchUpInside" id="hSW-m0-gGE"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                </stackView>
             </objects>
             <point key="canvasLocation" x="-66" y="-1627"/>
         </scene>
