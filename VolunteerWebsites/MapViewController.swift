@@ -34,15 +34,16 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 print(placemark.location!.coordinate)
                 let coordinates = placemark.location!.coordinate
                 print(coordinates)
-                let artwork = Artwork(title: service.name, locationName: "", discipline: "Volunteering", coordinate: coordinates)
+                let artwork = Artwork(title: service.name, locationName: service.tag, discipline: "Volunteering", coordinate: coordinates)
                 //print(geocodeAddress(service.address))
+               
                 self.mapView.addAnnotation(artwork)
                 print("Here")
             }
             
         }
         geocoder = CLGeocoder()
-        print("Here")
+
         
         
        
@@ -64,6 +65,7 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var locationTuples: [(textField: UITextField!, mapItem: MKMapItem?)]!
     
     override func viewDidLoad() {
+
         centerMapOnLocation(initialLocation)
         
        // locationTuples = [(sourceField, nil), (desinationField1, nil), (destinat)]
@@ -121,12 +123,15 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
        
+        print("Here1")
         if annotation is MKUserLocation {
             return nil
         }
         
         let reuseId = "pin"
-        
+        print(annotation.subtitle)
+        print(annotation.title)
+        print("here2")
         var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
         if pinView == nil {
             pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)

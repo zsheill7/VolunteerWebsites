@@ -14,8 +14,9 @@ class Service {
     let email: String
     let phone: String
     let address: String
+    let tag: String
     
-    init(name: String, urlString: String, email: String, phone: String, address: String) {
+    init(name: String, urlString: String, email: String, phone: String, address: String, tag: String) {
         self.name = name
         
         let url = NSURL(string: urlString)
@@ -28,6 +29,7 @@ class Service {
         self.email = email
         self.phone = phone
         self.address = address
+        self.tag = tag
     }
     
     

@@ -278,11 +278,11 @@
             </objects>
             <point key="canvasLocation" x="-800" y="1107"/>
         </scene>
-        <!--Item-->
+        <!--Map-->
         <scene sceneID="t11-PY-aT0">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="niC-lp-O9a" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="65a-zD-rHb"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="Map Marker-25" id="65a-zD-rHb"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="a1m-mC-acD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -303,6 +303,7 @@
         <image name="Clinic-25" width="25" height="25"/>
         <image name="Home-25" width="25" height="25"/>
         <image name="Leaf_25" width="25" height="25"/>
+        <image name="Map Marker-25" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="HDF-vl-YN7"/>
