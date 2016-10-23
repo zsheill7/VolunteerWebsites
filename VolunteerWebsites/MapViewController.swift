@@ -75,23 +75,22 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             locationManager.requestWhenInUseAuthorization()
         }
         mapView.delegate = self
-        for service:Service in homelessServices {
+        for service:Service in homelessServices{
             geocodeAddress(service.address, service: service)
             addresses.append(service.address)
         }
-        for service:Service in healthServices {
+        for service:Service in healthServices{
             geocodeAddress(service.address, service: service)
             addresses.append(service.address)
         }
-        for service:Service in enviServices {
+        for service:Service in enviServices{
             geocodeAddress(service.address, service: service)
             addresses.append(service.address)
         }
-        for service:Service in animalServices {
+        for service:Service in animalServices{
             geocodeAddress(service.address, service: service)
             addresses.append(service.address)
         }
-        
         
     }
     
@@ -129,7 +128,8 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }
         
         let reuseId = "pin"
-        print(annotation.subtitle)
+        
+       
         print(annotation.title)
         print("here2")
         var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
@@ -138,7 +138,13 @@ class MapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             pinView!.canShowCallout = true
             pinView!.animatesDrop = true
             //pinView!.pinTintColor = UIColor.purpleColor()
-            
+            if annotation.subtitle!! == "Homeless" {
+                pinView!.pinTintColor = UIColor.redColor()
+            } else if annotation.subtitle!! == "Environmental" {
+                pinView!.pinTintColor = UIColor(red:0.40, green:0.80, blue:0.00, alpha:1.0)
+            } else if annotation.subtitle!! == "Health" {
+                pinView!.pinTintColor = UIColor(red:0.05, green:0.75, blue:0.91, alpha:1.0)
+            }
             let btn = UIButton(type: .DetailDisclosure)
             pinView?.rightCalloutAccessoryView = btn
         } else {

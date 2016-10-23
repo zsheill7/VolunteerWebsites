@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 
 func UIColorFromHex(rgbValue:UInt32, alpha:Double=1.0)->UIColor {
     let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
@@ -21,11 +21,14 @@ func UIColorFromHex(rgbValue:UInt32, alpha:Double=1.0)->UIColor {
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
-
+   
+    
    
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        FIRApp.configure()
+       
+        
         //let splitViewController = self.window!.rootViewController as! UISplitViewController
         let tabBarViewController = self.window!.rootViewController as! UITabBarController
         var splitViewControllerOne:UISplitViewController? = nil
@@ -44,6 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
                 splitViewControllerFour = viewController as? UISplitViewController
             }
         }
+        
         let navigationController = splitViewControllerOne!.viewControllers[splitViewControllerOne!.viewControllers.count-1] as! UINavigationController
         //navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
         

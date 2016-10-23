@@ -15,6 +15,7 @@ class Service {
     let phone: String
     let address: String
     let tag: String
+    let urlString: String
     
     init(name: String, urlString: String, email: String, phone: String, address: String, tag: String) {
         self.name = name
@@ -29,6 +30,7 @@ class Service {
         self.email = email
         self.phone = phone
         self.address = address
+        self.urlString = urlString
         self.tag = tag
     }
     
